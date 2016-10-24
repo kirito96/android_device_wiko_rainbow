@@ -1,9 +1,9 @@
 # inherit from the proprietary version
--include vendor/wiko/rainbow/BoardConfigVendor.mk
+-include vendor/alcatel/yaris/BoardConfigVendor.mk
 
 
 # Board
-TARGET_BOARD_PLATFORM := mt6582
+TARGET_BOARD_PLATFORM := mt6572
 TARGET_NO_BOOTLOADER := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -15,27 +15,29 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a7
-DEVICE_RESOLUTION := 720x1280
+DEVICE_RESOLUTION := 480x800
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # make_ext4fs requires numbers in dec format
-BOARD_BOOTIMAGE_PARTITION_SIZE := 5767168
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 6207168
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 943718400
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 968884224
+BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 545259520
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_KERNEL_CMDLINE :=
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-TARGET_BOOTLOADER_BOARD_NAME := rainbow
+TARGET_BOOTLOADER_BOARD_NAME := yaris
 
 TARGET_USERIMAGES_USE_EXT4:=true
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 
-BOARD_CUSTOM_BOOTIMG_MK := device/wiko/rainbow/bootimg.mk
-BOARD_MKBOOTIMG_ARGS := --board 1336460062
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_MKBOOTIMG := $(HOST_OUT_EXECUTABLES)/mtkbootimg$(HOST_EXECUTABLE_SUFFIX)
+BOARD_CUSTOM_BOOTIMG_MK := device/alcatel/yaris/bootimg.mk
+BOARD_MKBOOTIMG_ARGS := --mtk 1
 
 # Flags
 TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
@@ -49,8 +51,8 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 TARGET_KMODULES := true
 
-TARGET_PREBUILT_KERNEL := device/wiko/rainbow/kernel
-TARGET_RECOVERY_FSTAB := device/wiko/rainbow/rootdir/root/recovery.fstab
+TARGET_PREBUILT_KERNEL := device/alcatel/yaris/kernel
+TARGET_RECOVERY_FSTAB := device/alcatel/yaris/rootdir/root/recovery.fstab
 
 # Philz Recovery
 #RECOVERY_VARIANT := philz
@@ -71,7 +73,7 @@ DISABLE_DEXPREOPT := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/wiko/rainbow/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/alcatel/yaris/bluetooth
 
 # MTK hacks for hw
 # TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
@@ -82,7 +84,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/wiko/rainbow/bluetooth
 # PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 
 # EGL settings
-BOARD_EGL_CFG := device/wiko/rainbow/rootdir/configs/egl.cfg
+BOARD_EGL_CFG := device/alcatel/yaris/rootdir/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
@@ -115,7 +117,7 @@ TARGET_POWERHAL_VARIANT := cm
 
 # SELINUX
 BOARD_SEPOLICY_DIRS := \
-       device/wiko/rainbow/sepolicy
+       device/alcatel/yaris/sepolicy
 
 BOARD_SEPOLICY_UNION := \
        device.te \
@@ -124,7 +126,7 @@ BOARD_SEPOLICY_UNION := \
        file_contexts
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/wiko/rainbow/ril/
+BOARD_RIL_CLASS := ../../../device/alcatel/yaris/ril/
 
 # WIFI
 BOARD_CONNECTIVITY_VENDOR := MediaTek
