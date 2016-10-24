@@ -1,12 +1,12 @@
 # platform specific configuration items
-import /init.mt6582.usb.rc
+import /init.mt6572.usb.rc
 import /init.modem.rc
 import /init.project.rc
 import /init.fuse.rc
 import /init.xlog.rc
 ###########
 on early-init
-    setprop ro.mtk.hardware mt6582
+    setprop ro.mtk.hardware mt6572
     rm /sbin/multi_init
     chown shell system /proc/mtk_battery_cmd/current_cmd
     chown shell system /proc/mtk_battery_cmd/discharging_cmd
@@ -30,7 +30,7 @@ on init
 
 on fs
     write /proc/bootprof "INIT:eMMC:Mount_All_START"
-    mount_all /fstab.mt6582
+    mount_all /fstab.mt6572
     write /proc/bootprof "INIT:eMMC:Mount_All_END"
 
 # mount different fs end
