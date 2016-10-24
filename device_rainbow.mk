@@ -3,13 +3,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 # $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/wiko/rainbow/rainbow-vendor.mk)
+$(call inherit-product-if-exists, vendor/alcatel/yaris/yaris-vendor.mk)
 
 PRODUCT_CHARACTERISTICS := nosdcard
 
-DEVICE_PACKAGE_OVERLAYS += device/wiko/rainbow/overlay
+DEVICE_PACKAGE_OVERLAYS += device/alcatel/yaris/overlay
 
-LOCAL_PATH := device/wiko/rainbow
+LOCAL_PATH := device/alcatel/yaris
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -24,14 +24,14 @@ PRODUCT_PACKAGES += \
     libxlog
 
 PRODUCT_PACKAGES += \
-    lights.mt6582
+    lights.mt6572
 
 # audio
 PRODUCT_PACKAGES += \
     audio.r_submix.default
 
 PRODUCT_PACKAGES += \
-    audio.primary.mt6582
+    audio.primary.mt6572
 
 PRODUCT_PACKAGES += \
     audio_policy.default
@@ -40,25 +40,25 @@ PRODUCT_PACKAGES += \
     lib_driver_cmd_mt66xx
 
 PRODUCT_COPY_FILES += \
-    device/wiko/rainbow/rootdir/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
+    device/alcatel/yaris/rootdir/configs/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
 
 PRODUCT_COPY_FILES += \
-    device/wiko/rainbow/rootdir/root/fstab.mt6582:root/fstab.mt6582 \
-    device/wiko/rainbow/rootdir/root/init.recovery.mt6582.rc:root/init.recovery.mt6582.rc \
-    device/wiko/rainbow/rootdir/root/init.rc:root/init.rc \
-    device/wiko/rainbow/rootdir/root/init.mt6582.rc:root/init.mt6582.rc \
-    device/wiko/rainbow/rootdir/root/init.project.rc:root/init.project.rc \
-    device/wiko/rainbow/rootdir/root/factory_init.rc:root/factory_init.rc \
-    device/wiko/rainbow/rootdir/root/init.fuse.rc:root/init.fuse.rc \
-    device/wiko/rainbow/rootdir/root/init.modem.rc:root/init.modem.rc \
-    device/wiko/rainbow/rootdir/root/init.xlog.rc:root/init.xlog.rc \
-    device/wiko/rainbow/rootdir/root/ueventd.mt6582.rc:root/ueventd.mt6582.rc \
-    device/wiko/rainbow/rootdir/root/init.mt6582.usb.rc:root/init.mt6582.usb.rc \
+    device/alcatel/yaris/rootdir/root/fstab.mt6572:root/fstab.mt6572 \
+    device/alcatel/yaris/rootdir/root/init.recovery.mt6572.rc:root/init.recovery.mt6572.rc \
+    device/alcatel/yaris/rootdir/root/init.rc:root/init.rc \
+    device/alcatel/yaris/rootdir/root/init.mt6572.rc:root/init.mt6572.rc \
+    device/alcatel/yaris/rootdir/root/init.project.rc:root/init.project.rc \
+    device/alcatel/yaris/rootdir/root/factory_init.rc:root/factory_init.rc \
+    device/alcatel/yaris/rootdir/root/init.fuse.rc:root/init.fuse.rc \
+    device/alcatel/yaris/rootdir/root/init.modem.rc:root/init.modem.rc \
+    device/alcatel/yaris/rootdir/root/init.xlog.rc:root/init.xlog.rc \
+    device/alcatel/yaris/rootdir/root/ueventd.mt6572.rc:root/ueventd.mt6572.rc \
+    device/alcatel/yaris/rootdir/root/init.mt6572.usb.rc:root/init.mt6572.usb.rc \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-	device/wiko/rainbow/rootdir/configs/android.hardware.microphone.xml:system/etc/permissions/android.hardware.microphone.xml \
-	device/wiko/rainbow/rootdir/configs/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+	device/alcatel/yaris/rootdir/configs/android.hardware.microphone.xml:system/etc/permissions/android.hardware.microphone.xml \
+	device/alcatel/yaris/rootdir/configs/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
@@ -77,7 +77,7 @@ $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_PROPERTY_OVERRIDES := \
 	ro.mediatek.version.release=ALPS.W10.24.p0 \
-	ro.mediatek.platform=MT6582 \
+	ro.mediatek.platform=mt6572 \
 	ro.mediatek.chip_ver=S01 \
 	ro.mediatek.version.branch=KK1.MP1 \
 	ro.mediatek.version.sdk=2 \
@@ -89,7 +89,7 @@ PRODUCT_PROPERTY_OVERRIDES := \
 	persist.service.debuggable=1 \
 	persist.mtk.wcn.combo.chipid=-1
 
-PRODUCT_NAME := full_rainbow
-PRODUCT_DEVICE := rainbow
+PRODUCT_NAME := full_yaris
+PRODUCT_DEVICE := yaris
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
