@@ -53,6 +53,7 @@ PRODUCT_COPY_FILES += \
     device/alcatel/yaris/rootdir/root/init.modem.rc:root/init.modem.rc \
     device/alcatel/yaris/rootdir/root/init.xlog.rc:root/init.xlog.rc \
     device/alcatel/yaris/rootdir/root/ueventd.mt6572.rc:root/ueventd.mt6572.rc \
+    device/alcatel/yaris/rootdir/root/ueventd.rc:root/ueventd.rc \
     device/alcatel/yaris/rootdir/root/init.mt6572.usb.rc:root/init.mt6572.usb.rc \
     $(LOCAL_KERNEL):kernel
 
@@ -93,3 +94,15 @@ PRODUCT_NAME := full_yaris
 PRODUCT_DEVICE := yaris
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0 \
+ro.allow.mock.location=0 \
+persist.mtk.aee.aed=on \
+ro.debuggable=1 \
+ro.adb.secure=0 \
+ro.telephony.ril_class=MediaTekRIL \
+persist.service.acm.enable=0 \
+persist.sys.usb.config=mtp,mass_storage \
+persist.sys.force_highendgfx=true \
+ro.mount.fs=EXT4 \
+ro.persist.partition.support=no
