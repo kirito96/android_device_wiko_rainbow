@@ -54,6 +54,9 @@ TARGET_KMODULES := true
 TARGET_PREBUILT_KERNEL := device/alcatel/yaris/kernel
 TARGET_RECOVERY_FSTAB := device/alcatel/yaris/rootdir/root/recovery.fstab
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := yaris_m_gsm,Yaris_M_GSM,4032A,Yaris_M,4033,yaris_m,yaris
+
 # Philz Recovery
 #RECOVERY_VARIANT := philz
 #BOARD_USE_MTK_LAYOUT := true
